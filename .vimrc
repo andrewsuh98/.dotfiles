@@ -53,6 +53,9 @@ call plug#end()
 " NORD
 colorscheme nord
 
+" fzf.vim
+set rtp+=/usr/local/opt/fzf
+
 " }}}
 
 " STATUS LINE ------------------------------------------------------------ {{{
