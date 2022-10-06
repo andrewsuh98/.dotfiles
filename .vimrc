@@ -44,6 +44,7 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-fugitive'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 call plug#end()
 
 " }}}
@@ -52,9 +53,6 @@ call plug#end()
 
 " NORD
 colorscheme nord
-
-" fzf.vim
-set rtp+=/usr/local/opt/fzf
 
 " }}}
 
