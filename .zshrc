@@ -142,3 +142,5 @@ unset __conda_setup
 [[ -s /Users/andrewsuh/.autojump/etc/profile.d/autojump.sh ]] && source /Users/andrewsuh/.autojump/etc/profile.d/autojump.sh
 autoload -U compinit && compinit -u
 
+# fzf plugin
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
