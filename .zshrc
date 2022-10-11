@@ -116,6 +116,7 @@ alias zshconfig="vi ~/.zshrc"
 alias vimconfig="vi ~/.vimrc"
 alias p10kconfig="vi ~/.p10k.zsh"
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias nvimconfig="nvim ~/.config/nvim/init.vim"
 
 # opam configuration
 [[ ! -r /Users/andrewsuh/.opam/opam-init/init.zsh ]] || source /Users/andrewsuh/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
