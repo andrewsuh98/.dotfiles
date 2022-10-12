@@ -14,6 +14,9 @@ set smartcase
 " disable mouse
 set mouse=
 
+" use system clipboard
+set clipboard=unnamedplus
+
 " }}}
 
 " MAPPINGS --------------------------------------------------------------- {{{
