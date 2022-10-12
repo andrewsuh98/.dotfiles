@@ -71,6 +71,7 @@ endif
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 Plug 'EdenEast/nightfox.nvim'
 Plug 'nvim-lualine/lualine.nvim'
+Plug 'neovim/nvim-lspconfig'
 call plug#end()
 
 " }}}
@@ -82,10 +83,10 @@ colorscheme nordfox " {nightfox, duskfox, nordfox, terafox, carbonfox}
 
 " }}}
 
-" LUA -------------------------------------------------------------------- {{{
+" LUA -------------------------------------------------------------------- 
 
-" lualine configuration
-lua << END
+lua << EOF
+-- lualine config
 require('lualine').setup {
   options = {
     icons_enabled = true,
@@ -103,20 +104,25 @@ require('lualine').setup {
       statusline = 1000,
       tabline = 1000,
       winbar = 1000,
+    },
+	styles = {
+      comments = "italic",
+      keywords = "bold",
+      types = "italic,bold",
     }
   },
   sections = {
     lualine_a = {'mode'},
-    lualine_b = {'branch', 'diff', 'diagnostics'},
-    lualine_c = {'filename'},
-    lualine_x = {"require'lsp-status'.status()", 'filetype'},
+    lualine_b = {'diff'},
+	lualine_c = {'filename'},
+	lualine_x = {'diagnostics', 'encoding', 'filetype'},
     lualine_y = {'progress'},
     lualine_z = {'location'}
   },
   inactive_sections = {
     lualine_a = {},
     lualine_b = {},
-    lualine_c = {'filename'},
+	lualine_c = {'filename'},
     lualine_x = {'location'},
     lualine_y = {},
     lualine_z = {}
@@ -126,6 +132,10 @@ require('lualine').setup {
   inactive_winbar = {},
   extensions = {}
 }
-END
+
+-- nvim-lsp config
+require'lspconfig'.ocamllsp.setup{}
+require'lspconfig'.tsserver.setup{}
+EOF
 
 " }}}
