@@ -112,11 +112,13 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias zshconfig="nvim ~/.zshrc"
-alias vimconfig="nvim ~/.vimrc"
-alias p10kconfig="nvim ~/.p10k.zsh"
-alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias vim="nvim"
+alias vi="nvim"
+alias zshconfig="vi ~/.zshrc"
+alias vimconfig="vi ~/.vimrc"
 alias nvimconfig="nvim ~/.config/nvim/init.vim"
+alias p10kconfig="vi ~/.p10k.zsh"
+alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # opam configuration
 [[ ! -r /Users/andrewsuh/.opam/opam-init/init.zsh ]] || source /Users/andrewsuh/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
