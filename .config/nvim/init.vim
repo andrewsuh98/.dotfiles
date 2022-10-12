@@ -69,9 +69,14 @@ endif
 
 " Vim-Plug configuration
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
-Plug 'EdenEast/nightfox.nvim'
-Plug 'nvim-lualine/lualine.nvim'
-Plug 'neovim/nvim-lspconfig'
+Plug 'EdenEast/nightfox.nvim' " nightfox theme
+Plug 'nvim-lualine/lualine.nvim' " statusline
+Plug 'L3MON4D3/LuaSnip' " snippet plugin
+Plug 'neovim/nvim-lspconfig' " lsp server configs
+Plug 'onsails/lspkind.nvim' " vscode-like pictograms
+Plug 'hrsh7th/cmp-buffer' " nvim-cmp source for buffer words
+Plug 'hrsh7th/cmp-nvim-lsp' " nvim-cmp source for neovim's built-in LSP
+Plug 'hrsh7th/nvim-cmp' " code completion
 call plug#end()
 
 " }}}
@@ -136,6 +141,63 @@ require('lualine').setup {
 -- nvim-lsp config
 require'lspconfig'.ocamllsp.setup{}
 require'lspconfig'.tsserver.setup{}
+require'lspconfig'.pyright.setup{}
+require'lspconfig'.sumneko_lua.setup {
+  settings = {
+    Lua = {
+      runtime = {
+        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+        version = 'LuaJIT',
+      },
+      diagnostics = {
+        -- Get the language server to recognize the `vim` global
+        globals = {'vim'},
+      },
+      workspace = {
+        -- Make the server aware of Neovim runtime files
+        library = vim.api.nvim_get_runtime_file("", true),
+      },
+      -- Do not send telemetry data containing a randomized but unique identifier
+      telemetry = {
+        enable = false,
+      },
+    },
+  },
+}
+
+-- code completion
+local cmp = require'cmp'
+local lspkind = require 'lspkind'
+cmp.setup({
+  snippet = {
+    expand = function(args)
+      require('luasnip').lsp_expand(args.body)
+    end,
+  },
+  mapping = cmp.mapping.preset.insert({
+    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-e>'] = cmp.mapping.close(),
+    ['<CR>'] = cmp.mapping.confirm({
+      behavior = cmp.ConfirmBehavior.Replace,
+      select = true
+    }),
+  }),
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
+    { name = 'buffer' },
+  }),
+  formatting = {
+    format = lspkind.cmp_format({ with_text = false, maxwidth = 50 })
+  }
+})
+
+vim.cmd [[
+  set completeopt=menuone,noinsert,noselect
+  highlight! default link CmpItemKind CmpItemMenuDefault
+]]
+
 EOF
 
 " }}}
