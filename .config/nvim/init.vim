@@ -1,8 +1,9 @@
 " GENERAL  ---------------------------------------------------------------- {{{
 
+set tabstop=4 shiftwidth=4 " tab to four spaces
 set number relativenumber "relative line numbering
 set cursorline " highlight the line of cursor
-set noshowmode " don't show mode change, using vim-airline instead
+set noshowmode " don't show mode change, use statusline instead
 
 " ingore case
 set ignorecase
