@@ -1,3 +1,5 @@
+" vim:fdm=marker
+
 " GENERAL  ---------------------------------------------------------------- {{{
 
 set tabstop=4 shiftwidth=4 " tab to four spaces
@@ -27,6 +29,30 @@ nnoremap <down> <nop>
 nnoremap <left> <nop>
 nnoremap <right> <nop>
 
+" Increment/decrement
+nnoremap + <C-a>
+nnoremap - <C-x>
+
+" Select all
+nnoremap <C-a> gg<S-v>G
+
+" Tabs
+nnoremap te :tabedit<Return>
+" Split window
+nnoremap ss :split<Return><C-w>w
+nnoremap sv :vsplit<Return><C-w>w
+" Switch focus window
+nnoremap <Space> <C-w>w
+nnoremap sh <C-w>h
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
+" Resize window
+nnoremap <C-w><left> <C-w><
+nnoremap <C-w><right> <C-w>>
+nnoremap <C-w><up> <C-w>+
+nnoremap <C-w><down> <C-w>-
+
 " }}}
 
 " PLUGINS ---------------------------------------------------------------- {{{
@@ -50,17 +76,6 @@ call plug#end()
 
 " set colorscheme
 colorscheme nordfox " {nightfox, duskfox, nordfox, terafox, carbonfox}
-
-" }}}
-
-" VIMSCRIPT -------------------------------------------------------------- {{{
-
-" This will enable code folding.
-" Use the marker method of folding.
-augroup filetype_vim
-    autocmd!
-    autocmd FileType vim setlocal foldmethod=marker
-augroup END
 
 " }}}
 
@@ -109,3 +124,5 @@ require('lualine').setup {
   extensions = {}
 }
 END
+
+" }}}
