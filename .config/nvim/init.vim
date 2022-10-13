@@ -77,6 +77,7 @@ Plug 'onsails/lspkind.nvim' " vscode-like pictograms
 Plug 'hrsh7th/cmp-buffer' " nvim-cmp source for buffer words
 Plug 'hrsh7th/cmp-nvim-lsp' " nvim-cmp source for neovim's built-in LSP
 Plug 'hrsh7th/nvim-cmp' " code completion
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 
 " }}}
@@ -88,7 +89,7 @@ colorscheme nordfox " {nightfox, duskfox, nordfox, terafox, carbonfox}
 
 " }}}
 
-" LUA -------------------------------------------------------------------- 
+" LUA -------------------------------------------------------------------- {{{
 
 lua << EOF
 -- lualine config
@@ -197,6 +198,40 @@ vim.cmd [[
   set completeopt=menuone,noinsert,noselect
   highlight! default link CmpItemKind CmpItemMenuDefault
 ]]
+
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,
+    disable = {},
+  },
+  indent = {
+    enable = true,
+    disable = {},
+  },
+  ensure_installed = {
+    "tsx",
+    "json",
+    "css",
+    "html",
+    "lua",
+	"c_sharp",
+	"cpp",
+	"gitignore",
+	"java",
+	"javascript",
+	"markdown",
+	"markdown_inline",
+	"ocaml",
+	"ocaml_interface",
+	"python",
+	"regex",
+	"sql",
+	"vim"
+  },
+  autotag = {
+    enable = true,
+  },
+}
 
 EOF
 
