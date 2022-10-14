@@ -78,6 +78,7 @@ Plug 'hrsh7th/cmp-buffer' " nvim-cmp source for buffer words
 Plug 'hrsh7th/cmp-nvim-lsp' " nvim-cmp source for neovim's built-in LSP
 Plug 'hrsh7th/nvim-cmp' " code completion
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'windwp/nvim-autopairs'
 call plug#end()
 
 " }}}
@@ -199,6 +200,7 @@ vim.cmd [[
   highlight! default link CmpItemKind CmpItemMenuDefault
 ]]
 
+-- nvim-treesitter configs
 require'nvim-treesitter.configs'.setup {
   highlight = {
     enable = true,
@@ -231,6 +233,11 @@ require'nvim-treesitter.configs'.setup {
   autotag = {
     enable = true,
   },
+}
+
+-- nvim-autopairs
+require("nvim-autopairs").setup {
+	disable_filetype = {'vim'}
 }
 
 EOF
