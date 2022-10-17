@@ -12,7 +12,7 @@ require('nightfox').setup({
 			conditionals = "NONE",
 			constants = "NONE",
 			functions = "NONE",
-			keywords = "bold",
+			keywords = "NONE",
 			numbers = "NONE",
 			operators = "NONE",
 			strings = "NONE",
