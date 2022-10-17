@@ -9,8 +9,8 @@ local is_mac = has "macunix"
 local is_win = has "win32"
 
 if is_mac then
-  require('andrewsuh.macos')
+	require('andrewsuh.macos')
 end
 if is_win then
-  require('andrewsuh.windows')
+	require('andrewsuh.windows')
 end
