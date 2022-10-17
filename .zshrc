@@ -114,9 +114,11 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vim="nvim"
 alias vi="nvim"
-alias zshconfig="vi ~/.zshrc"
+alias zshconfig= "vi ~/.zshrc"
 alias vimconfig="vi ~/.vimrc"
-alias nvimconfig="nvim ~/.config/nvim/init.vim"
+alias nvimconfig="vi ~/.config/nvim/init.lua"
+alias nvimcolorscheme="vi ~/.config/nvim/lua/andrewsuh/colorscheme.lua"
+alias nvimplugins="vi ~/.config/nvim/lua/andrewsuh/plugins.lua"
 alias p10kconfig="vi ~/.p10k.zsh"
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
