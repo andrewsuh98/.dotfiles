@@ -14,8 +14,8 @@ vim.cmd([[
 		Plug 'nvim-lualine/lualine.nvim' " statusline
 		Plug 'windwp/nvim-autopairs' " autopair
 		Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+		Plug 'neovim/nvim-lspconfig' " lsp server configs
 		" Plug 'L3MON4D3/LuaSnip' " snippet plugin
-		" Plug 'neovim/nvim-lspconfig' " lsp server configs
 		" Plug 'onsails/lspkind.nvim' " vscode-like pictograms
 		" Plug 'hrsh7th/cmp-buffer' " nvim-cmp source for buffer words
 		" Plug 'hrsh7th/cmp-nvim-lsp' " nvim-cmp source for neovim's built-in LSP
