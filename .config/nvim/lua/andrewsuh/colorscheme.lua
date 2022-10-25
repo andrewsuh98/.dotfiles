@@ -30,7 +30,11 @@ require('nightfox').setup({
 	},
 	palettes = {},
 	specs = {},
-	groups = {},
+	groups = {
+		all = {
+			EndOfBuffer = { link = "Conceal" },
+		}
+	},
 })
 
 -- load colorscheme
