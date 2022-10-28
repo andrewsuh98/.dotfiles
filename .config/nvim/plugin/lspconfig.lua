@@ -93,7 +93,7 @@ nvim_lsp.pyright.setup {
 nvim_lsp.ocamllsp.setup {
 	on_attach = function(client, bufnr)
 		on_attach(client, bufnr)
-		enable_format_on_save(client, bufnr)
+		-- enable_format_on_save(client, bufnr)
 	end,
 	capabilities = capabilities
 }
