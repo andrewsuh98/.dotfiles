@@ -13,12 +13,21 @@ vim.cmd([[
 		Plug 'EdenEast/nightfox.nvim' " nightfox theme
 		Plug 'nvim-lualine/lualine.nvim' " statusline
 		Plug 'windwp/nvim-autopairs' " autopair
-		Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-		Plug 'neovim/nvim-lspconfig' " lsp server configs
-		" Plug 'L3MON4D3/LuaSnip' " snippet plugin
-		" Plug 'onsails/lspkind.nvim' " vscode-like pictograms
-		" Plug 'hrsh7th/cmp-buffer' " nvim-cmp source for buffer words
+		Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " treesitter for syntax highlighting
+
+		" cmp plugins
+		Plug 'hrsh7th/nvim-cmp' " code completion
+		Plug 'hrsh7th/cmp-buffer' " nvim-cmp source for buffer completion
+		" Plug 'hrsh7th/cmp-path' " nvim-cmp source for path completion
+		" Plug 'hrsh7th/cmp-cmdline' " nvim-cmp source for cmdline completion
+		" Plug 'onsails/lspkind.nvim' " autocompletion style
+
+		" snippet engine
+		Plug 'L3MON4D3/LuaSnip' " snippet plugin
+
+		" LSP plugins
+		" Plug 'neovim/nvim-lspconfig' " lsp server configs
 		" Plug 'hrsh7th/cmp-nvim-lsp' " nvim-cmp source for neovim's built-in LSP
-		" Plug 'hrsh7th/nvim-cmp' " code completion
+
 	call plug#end()
 ]])
