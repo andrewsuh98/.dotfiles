@@ -79,9 +79,7 @@ end
 --}
 
 -- Set up completion using nvim_cmp with LSP source
---local capabilities = require('cmp_nvim_lsp').update_capabilities(
---vim.lsp.protocol.make_client_capabilities()
---)
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 -- python
 nvim_lsp.pyright.setup {
@@ -94,6 +92,15 @@ nvim_lsp.ocamllsp.setup {
 	on_attach = function(client, bufnr)
 		on_attach(client, bufnr)
 		-- enable_format_on_save(client, bufnr)
+	end,
+	capabilities = capabilities
+}
+
+-- c#
+nvim_lsp.csharp_ls.setup {
+	on_attach = function(client, bufnr)
+		on_attach(client, bufnr)
+		enable_format_on_save(client, bufnr)
 	end,
 	capabilities = capabilities
 }
@@ -121,7 +128,17 @@ nvim_lsp.sumneko_lua.setup {
 	},
 }
 
--- diagnostics config
+-- when publishing diagnostics
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+	vim.lsp.diagnostic.on_publish_diagnostics, {
+	underline = true,
+	update_in_insert = false,
+	virtual_text = { spacing = 4, prefix = "●" },
+	severity_sort = true,
+}
+)
+
+-- Diagnostics config
 vim.diagnostic.config({
 	underline = true,
 	update_in_insert = true,
