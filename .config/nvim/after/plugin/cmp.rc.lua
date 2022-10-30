@@ -46,19 +46,19 @@ local autocomplete_style
 if lspkind_status then
 	autocomplete_style = lspkind.cmp_format({ with_text = false, maxwidth = 50 })
 else
-		autocomplete_style = function(entry, vim_item)
-			-- Kind icons
-			-- vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-			vim_item.kind = string.format('%s %s |', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
+	autocomplete_style = function(entry, vim_item)
+		-- Kind icons
+		-- vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
+		vim_item.kind = string.format('%s %s |', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
 
-			vim_item.menu = ({
-				nvim_lsp = "[LSP]",
-				luasnip = "[Snippet]",
-				buffer = "[Buffer]",
-				path = "[Path]",
-			})[entry.source.name]
-			return vim_item
-		end
+		vim_item.menu = ({
+			nvim_lsp = "[LSP]",
+			luasnip = "[Snippet]",
+			buffer = "[Buffer]",
+			path = "[Path]",
+		})[entry.source.name]
+		return vim_item
+	end
 end
 
 
@@ -134,11 +134,10 @@ cmp.setup({
 		select = false,
 	},
 
-	-- documentation window borders
+	-- window style
 	window = {
-		documentation = {
-			border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-		},
+		completion = cmp.config.window.bordered(),
+		documentation = cmp.config.window.bordered(),
 	},
 
 	-- experimental features
