@@ -3,6 +3,7 @@ require('andrewsuh.highlights')
 require('andrewsuh.maps')
 require('andrewsuh.plugins')
 require('andrewsuh.colorscheme')
+require('andrewsuh.lsp')
 
 local has = vim.fn.has
 local is_mac = has "macunix"

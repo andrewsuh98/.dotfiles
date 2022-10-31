@@ -7,7 +7,7 @@ if (not luasnip_status) then return end
 local lspkind_status, lspkind = pcall(require, "lspkind")
 
 local buffer_cmp = false
-local cmdline_cmp = false
+local cmdline_cmp = true
 
 -- custom icons
 local kind_icons = {
