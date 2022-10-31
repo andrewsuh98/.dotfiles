@@ -18,9 +18,9 @@ vim.cmd([[
 		" cmp plugins
 		Plug 'hrsh7th/nvim-cmp' " code completion
 		Plug 'hrsh7th/cmp-nvim-lsp' " nvim-cmp source for neovim's built-in LSP
-		" Plug 'hrsh7th/cmp-buffer' " nvim-cmp source for buffer completion
-		" Plug 'hrsh7th/cmp-path' " nvim-cmp source for path completion
-		" Plug 'hrsh7th/cmp-cmdline' " nvim-cmp source for cmdline completion
+		Plug 'hrsh7th/cmp-buffer' " nvim-cmp source for buffer completion
+		Plug 'hrsh7th/cmp-path' " nvim-cmp source for path completion
+		Plug 'hrsh7th/cmp-cmdline' " nvim-cmp source for cmdline completion
 
 		" snippet engine
 		Plug 'L3MON4D3/LuaSnip' " snippet plugin
