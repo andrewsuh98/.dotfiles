@@ -6,6 +6,9 @@ if (not luasnip_status) then return end
 
 local lspkind_status, lspkind = pcall(require, "lspkind")
 
+local buffer_cmp = false
+local cmdline_cmp = false
+
 -- custom icons
 local kind_icons = {
 	Text = "",
@@ -77,6 +80,7 @@ cmp.setup({
 		['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-1), { 'i', 'c' }),
 		['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(1), { 'i', 'c' }),
 		['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+		["<C-y>"] = cmp.config.disable,
 		['<C-e>'] = cmp.mapping {
 			i = cmp.mapping.abort(),
 			c = cmp.mapping.close(),
@@ -150,3 +154,25 @@ cmp.setup({
 		native_menu = false,
 	},
 })
+
+-- Use buffer source for `/` and `?`
+if buffer_cmp then
+	cmp.setup.cmdline({ '/', '?' }, {
+		mapping = cmp.mapping.preset.cmdline(),
+		sources = {
+			{ name = 'buffer' }
+		}
+	})
+end
+
+-- Use cmdline & path source for ':'
+if cmdline_cmp then
+	cmp.setup.cmdline(':', {
+		mapping = cmp.mapping.preset.cmdline(),
+		sources = cmp.config.sources({
+			{ name = 'path' }
+		}, {
+			{ name = 'cmdline' }
+		})
+	})
+end
