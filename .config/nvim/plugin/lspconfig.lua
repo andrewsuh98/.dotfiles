@@ -3,9 +3,6 @@ if (not lspconfig_status) then return end
 
 local protocol = require('vim.lsp.protocol')
 
--- set maximum number of autocomplete items
-vim.cmd [[set pumheight=7]]
-
 --[[
 -- setup mason
 local mason_status, mason = pcall(require, "mason")
