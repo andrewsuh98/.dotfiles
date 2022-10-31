@@ -1,3 +1,6 @@
+local status, nightfox = pcall(require, "nightfox")
+if (not status) then return end
+
 -- Nightfox options
 require('nightfox').setup({
 	options = {

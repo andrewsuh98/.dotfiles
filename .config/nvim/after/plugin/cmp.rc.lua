@@ -6,12 +6,6 @@ if (not luasnip_status) then return end
 
 local lspkind_status, lspkind = pcall(require, "lspkind")
 
--- assist behavior of supertab
-local check_backspace = function()
-	local col = vim.fn.col "." - 1
-	return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
-end
-
 -- custom icons
 local kind_icons = {
 	Text = "",
@@ -41,6 +35,12 @@ local kind_icons = {
 	TypeParameter = "",
 }
 
+-- assist behavior of supertab
+local check_backspace = function()
+	local col = vim.fn.col "." - 1
+	return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
+end
+
 -- autocomplete formatting style
 local autocomplete_style
 if lspkind_status then
@@ -61,7 +61,7 @@ else
 	end
 end
 
-
+-- setup cmp
 cmp.setup({
 	snippet = {
 		expand = function(args)
