@@ -35,6 +35,9 @@ local kind_icons = {
 	TypeParameter = "",
 }
 
+-- number of autocomplete items to show
+vim.cmd [[ set pumheight=8 ]]
+
 -- assist behavior of supertab
 local check_backspace = function()
 	local col = vim.fn.col "." - 1
@@ -71,8 +74,8 @@ cmp.setup({
 	mapping = cmp.mapping.preset.insert({
 		['<C-k>'] = cmp.mapping.select_prev_item(),
 		['<C-j>'] = cmp.mapping.select_next_item(),
-		['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
-		['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+		['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-1), { 'i', 'c' }),
+		['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(1), { 'i', 'c' }),
 		['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
 		['<C-e>'] = cmp.mapping {
 			i = cmp.mapping.abort(),
@@ -139,6 +142,7 @@ cmp.setup({
 		completion = cmp.config.window.bordered(),
 		documentation = cmp.config.window.bordered(),
 	},
+
 
 	-- experimental features
 	experimental = {
