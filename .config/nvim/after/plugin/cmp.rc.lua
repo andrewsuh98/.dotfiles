@@ -141,6 +141,11 @@ cmp.setup({
 		select = false,
 	},
 
+	-- select first candidate automatically
+	completion = {
+		completeopt = 'menu, menuone, noinsert'
+	},
+
 	-- window style
 	window = {
 		completion = cmp.config.window.bordered(),
