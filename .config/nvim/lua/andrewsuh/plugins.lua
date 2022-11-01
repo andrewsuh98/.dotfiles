@@ -29,6 +29,7 @@ vim.cmd([[
 		Plug 'williamboman/mason.nvim' " LSP package manager
 		Plug 'williamboman/mason-lspconfig.nvim' " hook for mason and neovim's LSP
 		Plug 'neovim/nvim-lspconfig' " lsp server configs
+		Plug 'j-hui/fidget.nvim' " show LSP progress in standalone UI
 	
 		" git 
 		Plug 'lewis6991/gitsigns.nvim'
