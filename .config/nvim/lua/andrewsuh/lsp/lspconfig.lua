@@ -1,8 +1,6 @@
 local lspconfig_status, nvim_lsp = pcall(require, "lspconfig")
 if (not lspconfig_status) then return end
 
-local protocol = require('vim.lsp.protocol')
-
 -- autoformatting per buffer
 local augroup_format = vim.api.nvim_create_augroup("Format", { clear = true })
 local enable_format_on_save = function(_, bufnr)
@@ -18,7 +16,7 @@ end
 
 -- global keymaps
 local opts = { noremap = true, silent = true }
--- vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
+vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, opts)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 --vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
@@ -37,7 +35,7 @@ local on_attach = function(client, bufnr)
 	buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', bufopts)
 
 	-- formatting
-	-- buf_set_keymap('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
+	vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.format { async = true } end, bufopts)
 
 	buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', bufopts)
 end
