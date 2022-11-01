@@ -152,7 +152,6 @@ cmp.setup({
 		documentation = cmp.config.window.bordered(),
 	},
 
-
 	-- experimental features
 	experimental = {
 		ghost_text = false,
