@@ -35,6 +35,9 @@ vim.cmd([[
 	
 		" which-key
 		Plug 'folke/which-key.nvim'
+	
+		" commentor
+		Plug 'numToStr/Comment.nvim' 
 
 	call plug#end()
 ]])
