@@ -32,6 +32,9 @@ vim.cmd([[
 	
 		" git 
 		Plug 'lewis6991/gitsigns.nvim'
+	
+		" which-key
+		Plug 'folke/which-key.nvim'
 
 	call plug#end()
 ]])
