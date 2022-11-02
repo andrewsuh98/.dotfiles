@@ -60,7 +60,6 @@ return packer.startup(function(use)
 	use "williamboman/mason.nvim" -- LSP package manager
 	use "williamboman/mason-lspconfig.nvim" -- hook for mason and neovim's LSP
 	use "neovim/nvim-lspconfig" -- lsp server configs
-	use "j-hui/fidget.nvim" -- show LSP progress in standalone UI
 
 	-- git
 	use "lewis6991/gitsigns.nvim"
