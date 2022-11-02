@@ -1,44 +1,78 @@
--- bootstrap vim-plug
+-- Automatically install packer
+local ensure_packer = function()
+	local fn = vim.fn
+	local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+	if fn.empty(fn.glob(install_path)) > 0 then
+		print "Downloading and installing packer..."
+		fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
+		vim.cmd [[packadd packer.nvim]]
+		print "Packer installed! Close and reopen Neovim..."
+		return true
+	end
+	return false
+end
+
+local packer_bootstrap = ensure_packer()
+
+-- reload neovim when plugins.lua is saved
 vim.cmd([[
-	let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
-	if empty(glob(data_dir . '/autoload/plug.vim'))
-	  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-	  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-	endif
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+  augroup end
 ]])
 
--- vim-plug configuration
-vim.cmd([[
-	call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
-		Plug 'EdenEast/nightfox.nvim' " nightfox theme
-		Plug 'nvim-lualine/lualine.nvim' " statusline
-		Plug 'windwp/nvim-autopairs' " autopair
-		Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " treesitter for syntax highlighting
 
-		" cmp plugins
-		Plug 'hrsh7th/nvim-cmp' " code completion
-		Plug 'hrsh7th/cmp-nvim-lsp' " nvim-cmp source for neovim's built-in LSP
-		Plug 'hrsh7th/cmp-buffer' " nvim-cmp source for buffer completion
-		Plug 'hrsh7th/cmp-path' " nvim-cmp source for path completion
-		Plug 'hrsh7th/cmp-cmdline' " nvim-cmp source for cmdline completion
+-- protected call to prevent error on first use
+local status, packer = pcall(require, "packer")
+if (not status) then return end
 
-		" snippet engine
-		Plug 'L3MON4D3/LuaSnip' " snippet plugin
+-- packer use floating window
+packer.init {
+	display = {
+		open_fn = function()
+			return require("packer.util").float -- {border = "rounded", "single"}
+		end
+	}
+}
 
-		" LSP plugins
-		Plug 'williamboman/mason.nvim' " LSP package manager
-		Plug 'williamboman/mason-lspconfig.nvim' " hook for mason and neovim's LSP
-		Plug 'neovim/nvim-lspconfig' " lsp server configs
-		Plug 'j-hui/fidget.nvim' " show LSP progress in standalone UI
-	
-		" git 
-		Plug 'lewis6991/gitsigns.nvim'
-	
-		" which-key
-		Plug 'folke/which-key.nvim'
-	
-		" commentor
-		Plug 'numToStr/Comment.nvim' 
+return packer.startup(function(use)
+	use "wbthomason/packer.nvim"
+	use "EdenEast/nightfox.nvim" -- nightfox theme
+	use "nvim-lualine/lualine.nvim" -- statusline
+	use "windwp/nvim-autopairs" -- autopair
+	use {
+		'nvim-treesitter/nvim-treesitter',
+		run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+	} -- treesitter
 
-	call plug#end()
-]])
+	-- cmp plugins
+	use "hrsh7th/nvim-cmp" -- code completion
+	use "hrsh7th/cmp-nvim-lsp" -- nvim-cmp source for neovim's built-in LSP
+	use "hrsh7th/cmp-buffer" -- nvim-cmp source for buffer completion
+	use "hrsh7th/cmp-path" -- nvim-cmp source for path completion
+	use "hrsh7th/cmp-cmdline" -- nvim-cmp source for cmdline completion
+
+	-- snippet engine
+	use "L3MON4D3/LuaSnip" -- snippet plugin
+
+	-- LSP plugins
+	use "williamboman/mason.nvim" -- LSP package manager
+	use "williamboman/mason-lspconfig.nvim" -- hook for mason and neovim's LSP
+	use "neovim/nvim-lspconfig" -- lsp server configs
+	use "j-hui/fidget.nvim" -- show LSP progress in standalone UI
+
+	-- git
+	use "lewis6991/gitsigns.nvim"
+
+	-- which-key
+	use "folke/which-key.nvim"
+
+	-- commentor
+	use "numToStr/Comment.nvim"
+
+	-- Automatically set up configuration after cloning packer.nvim
+	if packer_bootstrap then
+		require('packer').sync()
+	end
+end)
