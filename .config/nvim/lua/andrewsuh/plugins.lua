@@ -43,7 +43,7 @@ return packer.startup(function(use)
 	use "windwp/nvim-autopairs" -- autopair
 	use {
 		'nvim-treesitter/nvim-treesitter',
-		run = ':TSUpdate'
+		run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
 	}
 
 	-- cmp plugins
