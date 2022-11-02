@@ -31,7 +31,7 @@ if (not status) then return end
 packer.init {
 	display = {
 		open_fn = function()
-			return require("packer.util").float -- {border = "rounded", "single"}
+			return require('packer.util').float({ border = "rounded" })
 		end
 	}
 }
@@ -43,8 +43,8 @@ return packer.startup(function(use)
 	use "windwp/nvim-autopairs" -- autopair
 	use {
 		'nvim-treesitter/nvim-treesitter',
-		run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
-	} -- treesitter
+		run = ':TSUpdate'
+	}
 
 	-- cmp plugins
 	use "hrsh7th/nvim-cmp" -- code completion
