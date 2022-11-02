@@ -22,7 +22,6 @@ vim.cmd([[
   augroup end
 ]])
 
-
 -- protected call to prevent error on first use
 local status, packer = pcall(require, "packer")
 if (not status) then return end
@@ -37,14 +36,14 @@ packer.init {
 }
 
 return packer.startup(function(use)
-	use "wbthomason/packer.nvim"
+	use "wbthomason/packer.nvim" -- packer plugin manager
 	use "EdenEast/nightfox.nvim" -- nightfox theme
 	use "nvim-lualine/lualine.nvim" -- statusline
-	use "windwp/nvim-autopairs" -- autopair
+	use "windwp/nvim-autopairs" -- autopairs
 	use {
 		'nvim-treesitter/nvim-treesitter',
 		run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
-	}
+	} -- treesitter
 
 	-- cmp plugins
 	use "hrsh7th/nvim-cmp" -- code completion
