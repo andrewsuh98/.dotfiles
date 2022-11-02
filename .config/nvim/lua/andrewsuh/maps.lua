@@ -10,7 +10,7 @@ vim.g.mapleader = ' '
 vim.g.localmapleader = ' '
 
 -- 'kj' as escape
-keymap.set({ 'i', 'v', 'c' }, 'kj', '<Esc>', opts)
+keymap.set({ 'i', 'c' }, 'kj', '<Esc>', opts)
 
 -- disable arrow keys
 keymap.set({ 'n', 'v' }, '<Up>', '<NOP>', opts)
