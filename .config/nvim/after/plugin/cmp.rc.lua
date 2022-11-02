@@ -41,6 +41,9 @@ local kind_icons = {
 -- number of autocomplete items to show
 vim.cmd [[ set pumheight=8 ]]
 
+-- faster completion time
+vim.opt.updatetime = 500
+
 -- assist behavior of supertab
 local check_backspace = function()
 	local col = vim.fn.col "." - 1
