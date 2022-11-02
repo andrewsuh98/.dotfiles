@@ -2,9 +2,7 @@ local status, ts = pcall(require, "nvim-treesitter.configs")
 if (not status) then return end
 
 ts.setup {
-	ensure_installed = { 'c', 'c_sharp', 'cmake', 'comment', 'cpp', 'css', 'dockerfile', 'gitignore', 'html', 'http', 'java',
-		'javascript', 'jsdoc', 'json', 'json5', 'latex', 'lua', 'make', 'markdown', 'markdown_inline', 'ocaml',
-		'ocaml_interface', 'python', 'regex', 'rust', 'solidity', 'sql', 'typescript', 'vim' },
+	ensure_installed = "all",
 	highlight = {
 		enable = true,
 		disable = {},
