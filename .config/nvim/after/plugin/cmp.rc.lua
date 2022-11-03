@@ -58,8 +58,8 @@ if lspkind_status then
 else
 	autocomplete_style = function(entry, vim_item)
 		-- Kind icons
-		-- vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-		vim_item.kind = string.format('%s %s |', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
+		vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
+		-- vim_item.kind = string.format('%s %s |', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
 
 		vim_item.menu = ({
 			nvim_lsp = "[LSP]",
@@ -152,7 +152,7 @@ cmp.setup({
 
 	-- window style
 	window = {
-		completion = cmp.config.window.bordered(),
+		-- completion = cmp.config.window.bordered(),
 		documentation = cmp.config.window.bordered(),
 	},
 
