@@ -43,7 +43,6 @@ keymap.set('n', '<Leader>e', ':Lex 30<CR>', opts)
 keymap.set('n', 'ss', ':split<Return><C-w>w', opts)
 keymap.set('n', 'sv', ':vsplit<Return><C-w>w', opts)
 -- Switch focus window
--- keymap.set('n', '<Leader>', '<C-w>w', opts)
 keymap.set('', 'sh', '<C-w>h', opts)
 keymap.set('', 'sk', '<C-w>k', opts)
 keymap.set('', 'sj', '<C-w>j', opts)
