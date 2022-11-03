@@ -7,7 +7,7 @@ if (not luasnip_status) then return end
 
 local lspkind_status, lspkind = pcall(require, "lspkind")
 
-local buffer_cmp = false
+local buffer_cmp = true
 local cmdline_cmp = true
 
 -- custom icons
@@ -153,7 +153,7 @@ cmp.setup({
 	-- window style
 	window = {
 		-- completion = cmp.config.window.bordered(),
-		documentation = cmp.config.window.bordered(),
+		-- documentation = cmp.config.window.bordered(),
 	},
 
 	-- experimental features
@@ -167,6 +167,9 @@ cmp.setup({
 if buffer_cmp then
 	cmp.setup.cmdline({ '/', '?' }, {
 		mapping = cmp.mapping.preset.cmdline(),
+		completion = {
+			completeopt = 'menu, menuone, noinsert, noselect'
+		},
 		sources = {
 			{ name = 'buffer' }
 		}
@@ -177,6 +180,9 @@ end
 if cmdline_cmp then
 	cmp.setup.cmdline(':', {
 		mapping = cmp.mapping.preset.cmdline(),
+		completion = {
+			completeopt = 'menu, menuone, noinsert, noselect'
+		},
 		sources = cmp.config.sources({
 			{ name = 'path' }
 		}, {
