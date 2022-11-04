@@ -14,6 +14,7 @@ local enable_format_on_save = function(_, bufnr)
 	})
 end
 
+-- highlight references of current item
 local function lsp_highlight_document(client, bufnr)
 	if client.server_capabilities.documentHighlightProvider then
 		vim.api.nvim_create_augroup("lsp_document_highlight", { clear = true })
