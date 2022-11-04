@@ -2,7 +2,7 @@ local status, nightfox = pcall(require, "nightfox")
 if (not status) then return end
 
 -- Nightfox options
-require('nightfox').setup({
+nightfox.setup({
 	options = {
 		-- Compiled file's destination location
 		compile_path = vim.fn.stdpath("cache") .. "/nightfox",
@@ -36,6 +36,8 @@ require('nightfox').setup({
 	groups = {
 		all = {
 			EndOfBuffer = { link = "Conceal" },
+			NormalFloat = { bg = "palette.bg1" },
+			FloatBorder = { fg = "palette.fg0" },
 		}
 	},
 })
