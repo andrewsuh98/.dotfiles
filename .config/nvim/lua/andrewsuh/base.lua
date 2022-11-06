@@ -1,3 +1,7 @@
+-- disable netrw for nvim-tree
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- set file encoding
 vim.scriptencoding = 'utf-8'
 vim.opt.encoding = 'utf-8'
@@ -32,3 +36,7 @@ vim.opt.mouse = ''
 
 -- noshowmode, use statusline
 vim.opt.showmode = false
+
+-- always split right and below
+vim.opt.splitbelow = true
+vim.opt.splitright = true

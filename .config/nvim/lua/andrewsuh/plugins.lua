@@ -60,6 +60,12 @@ return packer.startup(function(use)
 	use "williamboman/mason-lspconfig.nvim" -- hook for mason and neovim's LSP
 	use "neovim/nvim-lspconfig" -- lsp server configs
 
+	-- icon set
+	use "nvim-tree/nvim-web-devicons"
+
+	-- file explorer
+	use "nvim-tree/nvim-tree.lua"
+
 	-- git
 	use "lewis6991/gitsigns.nvim"
 
