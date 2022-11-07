@@ -9,6 +9,9 @@ keymap.set('', '<Space>', '<NOP>', opts)
 vim.g.mapleader = ' '
 vim.g.localmapleader = ' '
 
+-- turn off highlighting
+keymap.set('n', '<Leader>nh', ':noh<CR>', opts)
+
 -- 'kj' as escape
 keymap.set({ 'i', 'c' }, 'kj', '<Esc>', opts)
 
@@ -29,17 +32,16 @@ keymap.set('n', '-', '<C-x>', opts)
 -- Select all
 keymap.set('n', '<C-a>', 'gg<S-v>G', opts)
 
--- New tab
--- keymap.set('n', 'te', ':tabedit', opts)
-
 -- navtigate buffers
 keymap.set('n', '<S-l>', ':bnext<CR>', opts)
 keymap.set('n', '<S-h>', ':bprevious<CR>', opts)
+-- delete current buffer without closing split
+keymap.set('n', '<Leader>bd', ':bp|bd #<CR>', opts)
 
 -- Split window
 keymap.set('n', 'ss', ':split<CR><C-w>w', opts)
 keymap.set('n', 'sv', ':vsplit<CR><C-w>w', opts)
-keymap.set('n', 'sc', ':close<CR>', opts)
+keymap.set('n', 'sd', ':close<CR>', opts)
 -- Switch focus window
 keymap.set('', 'sh', '<C-w>h', opts)
 keymap.set('', 'sk', '<C-w>k', opts)
