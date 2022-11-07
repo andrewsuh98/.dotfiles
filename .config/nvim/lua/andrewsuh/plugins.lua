@@ -75,6 +75,9 @@ return packer.startup(function(use)
 	-- commentor
 	use "numToStr/Comment.nvim"
 
+	-- bufferline
+	use "akinsho/bufferline.nvim"
+
 	-- Automatically set up configuration after cloning packer.nvim
 	if packer_bootstrap then
 		require('packer').sync()

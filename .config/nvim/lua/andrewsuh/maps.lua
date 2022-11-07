@@ -30,21 +30,23 @@ keymap.set('n', '-', '<C-x>', opts)
 keymap.set('n', '<C-a>', 'gg<S-v>G', opts)
 
 -- New tab
-keymap.set('n', 'te', ':tabedit', opts)
+-- keymap.set('n', 'te', ':tabedit', opts)
 
 -- navtigate buffers
 keymap.set('n', '<S-l>', ':bnext<CR>', opts)
 keymap.set('n', '<S-h>', ':bprevious<CR>', opts)
 
 -- Split window
-keymap.set('n', 'ss', ':split<Return><C-w>w', opts)
-keymap.set('n', 'sv', ':vsplit<Return><C-w>w', opts)
+keymap.set('n', 'ss', ':split<CR><C-w>w', opts)
+keymap.set('n', 'sv', ':vsplit<CR><C-w>w', opts)
+keymap.set('n', 'sc', ':close<CR>', opts)
 -- Switch focus window
 keymap.set('', 'sh', '<C-w>h', opts)
 keymap.set('', 'sk', '<C-w>k', opts)
 keymap.set('', 'sj', '<C-w>j', opts)
 keymap.set('', 'sl', '<C-w>l', opts)
 -- Resize window
+keymap.set('n', 'se', '<C-w>=', opts)
 keymap.set('n', '<C-w><left>', '<C-w><', opts)
 keymap.set('n', '<C-w><right>', '<C-w>>', opts)
 keymap.set('n', '<C-w><up>', '<C-w>+', opts)

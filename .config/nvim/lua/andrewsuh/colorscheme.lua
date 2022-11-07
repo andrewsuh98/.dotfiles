@@ -7,7 +7,7 @@ nightfox.setup({
 		-- Compiled file's destination location
 		compile_path = vim.fn.stdpath("cache") .. "/nightfox",
 		compile_file_suffix = "_compiled", -- Compiled file suffix
-		transparent = true, -- Disable setting background
+		transparent = false, -- Disable setting background
 		terminal_colors = true, -- Set terminal colors (vim.g.terminal_color_*) used in `:terminal`
 		dim_inactive = false, -- Non focused panes set to alternative background
 		styles = { -- Style to be applied to different syntax groups
@@ -35,9 +35,10 @@ nightfox.setup({
 	specs = {},
 	groups = {
 		all = {
-			EndOfBuffer = { link = "Conceal" },
 			NormalFloat = { bg = "palette.bg1" },
 			FloatBorder = { fg = "palette.fg0" },
+			EndOfBuffer = { link = "Conceal" },
+			NvimTreeEndOfBuffer = { fg = "palette.bg0" },
 		}
 	},
 })
