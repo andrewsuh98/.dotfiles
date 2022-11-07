@@ -124,6 +124,7 @@ alias nvimcolorscheme="vi ~/.config/nvim/lua/andrewsuh/colorscheme.lua"
 alias nvimplugins="vi ~/.config/nvim/lua/andrewsuh/plugins.lua"
 alias p10kconfig="vi ~/.p10k.zsh"
 alias config="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+alias chrome="open -a 'Google Chrome'"
 
 # opam configuration
 [[ ! -r /Users/andrewsuh/.opam/opam-init/init.zsh ]] || source /Users/andrewsuh/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
