@@ -40,6 +40,7 @@ return packer.startup(function(use)
 	use "EdenEast/nightfox.nvim" -- nightfox theme
 	use "nvim-lualine/lualine.nvim" -- statusline
 	use "windwp/nvim-autopairs" -- autopairs
+	use "nvim-lua/plenary.nvim" -- plenary
 	use {
 		'nvim-treesitter/nvim-treesitter',
 		run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
@@ -59,6 +60,17 @@ return packer.startup(function(use)
 	use "williamboman/mason.nvim" -- LSP package manager
 	use "williamboman/mason-lspconfig.nvim" -- hook for mason and neovim's LSP
 	use "neovim/nvim-lspconfig" -- lsp server configs
+
+	-- telescope
+	use {
+		'nvim-telescope/telescope.nvim',
+		tag = '0.1.0',
+		requires = {
+			'nvim-lua/plenary.nvim',
+			'BurntSushi/ripgrep',
+			{ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
+		}
+	}
 
 	-- icon set
 	use "nvim-tree/nvim-web-devicons"
