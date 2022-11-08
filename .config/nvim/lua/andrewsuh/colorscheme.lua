@@ -36,7 +36,7 @@ nightfox.setup({
 	groups = {
 		all = {
 			NormalFloat = { bg = "palette.bg1" },
-			FloatBorder = { fg = "palette.fg0" },
+			-- FloatBorder = { fg = "palette.fg0" },
 			EndOfBuffer = { link = "Conceal" },
 			NvimTreeEndOfBuffer = { fg = "palette.bg0" },
 		}
