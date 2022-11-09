@@ -61,7 +61,7 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
 	vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
 	vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
-	vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
+	vim.keymap.set('n', '<space>af', function() vim.lsp.buf.format { async = true } end, bufopts)
 
 	lsp_highlight_document(client, bufnr)
 end
