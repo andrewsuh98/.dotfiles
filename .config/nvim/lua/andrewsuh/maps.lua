@@ -39,8 +39,8 @@ keymap.set('n', '<S-h>', ':bprevious<CR>', opts)
 keymap.set('n', '<Leader>bd', ':bp|bd #<CR>', opts)
 
 -- Split window
-keymap.set('n', 'ss', ':split<CR><C-w>w', opts)
-keymap.set('n', 'sv', ':vsplit<CR><C-w>w', opts)
+keymap.set('n', 'ss', ':split<CR><C-w>j', opts)
+keymap.set('n', 'sv', ':vsplit<CR><C-w>l', opts)
 keymap.set('n', 'sc', ':close<CR>', opts)
 -- Switch focus window
 keymap.set('', 'sh', '<C-w>h', opts)
