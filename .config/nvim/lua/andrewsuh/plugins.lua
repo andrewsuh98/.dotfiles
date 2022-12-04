@@ -60,6 +60,7 @@ return packer.startup(function(use)
 	use "williamboman/mason.nvim" -- LSP package manager
 	use "williamboman/mason-lspconfig.nvim" -- hook for mason and neovim's LSP
 	use "neovim/nvim-lspconfig" -- lsp server configs
+	use "jose-elias-alvarez/null-ls.nvim" -- null-ls for formatting
 
 	-- telescope
 	use {
@@ -89,6 +90,9 @@ return packer.startup(function(use)
 
 	-- bufferline
 	use "akinsho/bufferline.nvim"
+
+	-- leap
+	use "ggandor/leap.nvim"
 
 	-- Automatically set up configuration after cloning packer.nvim
 	if packer_bootstrap then
