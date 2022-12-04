@@ -35,10 +35,14 @@ nightfox.setup({
 	specs = {},
 	groups = {
 		all = {
-			NormalFloat = { bg = "palette.bg1" },
+			-- NormalFloat = { bg = "palette.bg1" },
 			-- FloatBorder = { fg = "palette.fg0" },
 			EndOfBuffer = { link = "Conceal" },
 			NvimTreeEndOfBuffer = { fg = "palette.bg0" },
+			LeapLabelPrimary = { fg = "Black", bg = "palette.green.bright" },
+			LeapLabelSecondary = { fg = "Black", bg = "palette.blue.bright" },
+			LeapLabelSelected = { fg = "Black", bg = "palette.magenta.bright" },
+			LeapMatch = { fg = "palette.green.bright", style = "underline,nocombine" }
 		}
 	},
 })
