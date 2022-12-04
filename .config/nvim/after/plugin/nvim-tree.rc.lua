@@ -24,7 +24,7 @@ nvim_tree.setup { -- BEGIN_DEFAULT_OPTS
 	disable_netrw = true,
 	hijack_netrw = true,
 	hijack_cursor = true,
-	sync_root_with_cwd = false,
+	sync_root_with_cwd = true,
 	sort_by = "case_sensitive", -- options: {'name', 'case_sensitive', 'modification_time', 'extension'}
 	remove_keymaps = { "s" },
 	view = {
@@ -34,7 +34,7 @@ nvim_tree.setup { -- BEGIN_DEFAULT_OPTS
 		},
 	},
 	filters = {
-		custom = { "^.git$" }
+		-- custom = { "^.git$" }
 	},
 	actions = {
 		open_file = {
@@ -54,7 +54,7 @@ nvim_tree.setup { -- BEGIN_DEFAULT_OPTS
 	},
 	git = {
 		enable = true,
-		ignore = true,
+		ignore = false,
 		show_on_dirs = true,
 		timeout = 400,
 	},
