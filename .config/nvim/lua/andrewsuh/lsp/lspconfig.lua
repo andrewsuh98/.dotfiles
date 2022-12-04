@@ -52,16 +52,16 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
 	vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
 	vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-	vim.keymap.set('n', '<space>k', vim.lsp.buf.signature_help, bufopts)
-	-- vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
-	-- vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
-	-- vim.keymap.set('n', '<space>wl', function()
+	vim.keymap.set('n', '<Leader>k', vim.lsp.buf.signature_help, bufopts)
+	-- vim.keymap.set('n', '<Leader>wa', vim.lsp.buf.add_workspace_folder, bufopts)
+	-- vim.keymap.set('n', '<Leader>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
+	-- vim.keymap.set('n', '<Leader>wl', function()
 	-- 	print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 	-- end, bufopts)
-	vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
-	vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
-	vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
-	vim.keymap.set('n', '<space>af', function() vim.lsp.buf.format { async = true } end, bufopts)
+	vim.keymap.set('n', '<Leader>D', vim.lsp.buf.type_definition, bufopts)
+	vim.keymap.set('n', '<Leader>rn', vim.lsp.buf.rename, bufopts)
+	vim.keymap.set('n', '<Leader>ca', vim.lsp.buf.code_action, bufopts)
+	vim.keymap.set('n', '<Leader>af', function() vim.lsp.buf.format { async = true } end, bufopts)
 
 	lsp_highlight_document(client, bufnr)
 end
@@ -125,7 +125,7 @@ vim.diagnostic.config({
 		prefix = '●'
 	},
 	float = {
-		border = "rounded",
+		border = "none", -- options: {none, single, double, rounded, solid, shadow}
 		source = "always", -- Or "if_many"
 	},
 	severity_sort = true
